@@ -28,6 +28,7 @@ This is very handy, for example for merging data taken from YAML files.
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "hash-deep-merge.gemspec",
     "lib/hash_deep_merge.rb",
     "spec/hash-deep-merge_spec.rb",
     "spec/spec_helper.rb"
