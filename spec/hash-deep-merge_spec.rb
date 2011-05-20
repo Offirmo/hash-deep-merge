@@ -38,14 +38,12 @@ describe "HashDeepMerge" do
 				result = @hash1.merge(@hash1) # merge to itself
 				@hash1.should == @hash1_copy # should not have been modified
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 				
 				# Now we do it with deep_merge
 				result = @hash1.deep_merge(@hash1)
 				@hash1.should == @hash1_copy # should not have been modified
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 			end
 			
@@ -61,14 +59,12 @@ describe "HashDeepMerge" do
 				result = @hash1.merge(@hash2)
 				@hash1.should == @hash1_copy # should not have been modified
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 				
 				# Now we do it with deep_merge
 				result = @hash1.deep_merge(@hash2)
 				@hash1.should == @hash1_copy # should not have been modified
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 			end
 			
@@ -79,14 +75,12 @@ describe "HashDeepMerge" do
 				result = @hash2.merge(@hash1)
 				@hash1.should == @hash1_copy # should not have been modified
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 				
 				# Now we do it with deep_merge
 				result = @hash2.deep_merge(@hash1)
 				@hash1.should == @hash1_copy # should not have been modified
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 			end
 		end # merge
@@ -102,7 +96,6 @@ describe "HashDeepMerge" do
 				result = @hash1
 				@hash1.should == @hash1_copy # should be equal
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 				
 				# restore @hash1
@@ -114,7 +107,6 @@ describe "HashDeepMerge" do
 				result = @hash1
 				@hash1.should == @hash1_copy # should be equal
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 			end
 			
@@ -131,7 +123,6 @@ describe "HashDeepMerge" do
 				result = @hash1
 				@hash1.should_not == @hash1_copy # *should* have been modified
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 				
 				# restore @hash1
@@ -142,7 +133,6 @@ describe "HashDeepMerge" do
 				result = @hash1.deep_merge!(@hash2) # XXX with ! XXX
 				@hash1.should_not == @hash1_copy # *should* have been modified
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 			end
 			
@@ -154,7 +144,6 @@ describe "HashDeepMerge" do
 				result = @hash2
 				@hash1.should == @hash1_copy # should not have been modified
 				@hash2.should_not == @hash2_copy # *should* have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 				
 				# restore @hash2
@@ -166,7 +155,6 @@ describe "HashDeepMerge" do
 				result = @hash2
 				@hash1.should == @hash1_copy # should not have been modified
 				@hash2.should_not == @hash2_copy # *should* have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 			end
 		end # merge!
@@ -241,7 +229,6 @@ describe "HashDeepMerge" do
 				
 				@hash1.should == @hash1_copy # should be equal
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 			end
 			
@@ -257,7 +244,6 @@ describe "HashDeepMerge" do
 				
 				@hash1.should == @hash1_copy # should not have been modified
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 				result['sub hash 1'].should have(expected_result['sub hash 1'].length).entries
 				result['sub hash 1'].should ==   expected_result['sub hash 1']
@@ -274,7 +260,6 @@ describe "HashDeepMerge" do
 				
 				@hash1.should == @hash1_copy # should not have been modified
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 				result['sub hash 1'].should have(expected_result['sub hash 1'].length).entries
 				result['sub hash 1'].should ==   expected_result['sub hash 1']
@@ -297,7 +282,6 @@ describe "HashDeepMerge" do
 				
 				@hash1.should == @hash1_copy # should be equal
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 			end
 			
@@ -314,7 +298,6 @@ describe "HashDeepMerge" do
 				
 				@hash1.should_not == @hash1_copy # *should* have been modified
 				@hash2.should == @hash2_copy # should not have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 				result['sub hash 1'].should have(expected_result['sub hash 1'].length).entries
 				result['sub hash 1'].should ==   expected_result['sub hash 1']
@@ -332,7 +315,6 @@ describe "HashDeepMerge" do
 				
 				@hash1.should == @hash1_copy # should not have been modified
 				@hash2.should_not == @hash2_copy # *should* have been modified
-				result.should have(expected_result.length).entries
 				result.should == expected_result
 				result['sub hash 1'].should have(expected_result['sub hash 1'].length).entries
 				result['sub hash 1'].should ==   expected_result['sub hash 1']
@@ -347,14 +329,130 @@ describe "HashDeepMerge" do
 	
 	######################################################################
 	describe "handling of hashes containing hashes containing hashes" do
-		it "should work" do
-			pending
+		before(:each) do
+			# same as before, but with sub sub hashes
+			# things start to get complicated, isn't it ?
+			@hash1 = {
+				3            => 2,
+				:test        => 1,
+				'toto'       => 'titi',
+				:foo         => :bar,
+				'sub hash 1' => {
+					3                => 2,
+					:test            => 1,
+					'toto'           => 'titi',
+					:foo             => :bar,
+					'sub sub hash 1' => {
+						3      => '42',
+						:test  => 2,
+						'toto' => 'titi',
+						:fooz  => :barz
+					},
+				},
+				'sub hash 2' => {
+					'hello' => 'world'
+				},
+			}
+			@hash2 = {
+				3            => '42',
+				:test        => 2,
+				'toto'       => 'titi',
+				:fooz        => :barz,
+				'sub hash 1' => {
+					3                => '42',
+					:test            => 2,
+					'toto'           => 'titi',
+					:fooz            => :barz,
+					'sub sub hash 1' => {
+						3      => 2,
+						:test  => 1,
+						'toto' => 'titi',
+						:foo   => :bar
+					},
+				},
+				'sub hash 2' => {
+					'hello' => 'worldy'
+				},
+			}
+			
+			# Expected results, computed manually.
+			@expected_result_1to2 = {
+				3            => '42',
+				:test        => 2,
+				'toto'       => 'titi',
+				:foo         => :bar,
+				'sub hash 1' => {
+					3                => '42',
+					:test            => 2,
+					'toto'           => 'titi',
+					:foo             => :bar,
+					'sub sub hash 1' => {
+						3      => 2,
+						:test  => 1,
+						'toto' => 'titi',
+						:fooz  => :barz,
+						:foo   => :bar
+					},
+					:fooz => :barz
+				},
+				'sub hash 2' => {
+					'hello' => 'worldy'
+				},
+				:fooz        => :barz,
+			}
+			
+			# Gaaah ! My head burns !
+			
+			# We store copie to check for modifications,
+			# because some functions are expected to change the values and some not.
+			@hash1_copy = Hash.new.replace(@hash1)
+			@hash2_copy = Hash.new.replace(@hash2)
+			
+			# This is not really a test, it's just to remember prerequisites for following tests.
+			# (If we want to test no modifications, we just have to merge a hash with itself)
+			@expected_result_1to2.should_not == @hash1
+			@expected_result_1to2.should_not == @hash2
 		end
+		
+		######################## MERGE ########################
+		describe "merge" do
+			
+			it "should work (exact identity case)" do
+			
+				expected_result = @hash1_copy
+				@hash1.deep_merge!(@hash1)
+				result = @hash1
+				
+				@hash1.should == @hash1_copy # should be equal
+				@hash2.should == @hash2_copy # should not have been modified
+				result.should == expected_result
+			end
+			
+			it "should work (shuffled identity case)" do
+				# really needed ?
+				pending
+			end
+			
+			it "should work (different case)" do
+			
+				expected_result = @expected_result_1to2
+				@hash1.deep_merge!(@hash2)
+				result = @hash1
+				
+				@hash1.should_not == @hash1_copy # *should* have been modified
+				@hash2.should == @hash2_copy # should not have been modified
+				result.should == expected_result
+				result['sub hash 1'].should ==   expected_result['sub hash 1']
+				result['sub hash 1']['sub sub hash 1'].should ==   expected_result['sub hash 1']['sub sub hash 1']
+				result['sub hash 2'].should ==   expected_result['sub hash 2']
+			end
+		end # merge
 	end
 	
 	######################################################################
 	describe "handling of hashes containing hashes containing hashes containing hashes" do
 		# herm... maybe we'll stop here ;-)
+		# I'm mad enough already...
 	end
 	
 end # describe "HashDeepMerge"

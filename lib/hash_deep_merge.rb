@@ -1,18 +1,21 @@
 class Hash
 	
 	def deep_merge!(specialized_hash)
-		internal_deep_merge!(self, specialized_hash)
+		return internal_deep_merge!(self, specialized_hash)
 	end
 	
 	
 	def deep_merge(specialized_hash)
-		internal_deep_merge!(Hash.new.replace(self), specialized_hash)
+		return internal_deep_merge!(Hash.new.replace(self), specialized_hash)
 	end
 	
 	
 	protected
 		
 		# better, recursive, preserving method
+		# OK OK this is not the most efficient algorithm,
+		# but at last it's *perfectly clear and understandable*
+		# so fork and improve if you need 5% more speed, ok ?
 		def internal_deep_merge!(source_hash, specialized_hash)
 			
 			#puts "starting deep merge..."
@@ -39,6 +42,6 @@ class Hash
 			
 			#puts "deep merge done."
 			
-			source_hash
+			return source_hash
 		end
 end
