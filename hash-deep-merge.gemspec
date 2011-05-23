@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Offirmo"]
-  s.date = %q{2011-05-21}
+  s.date = %q{2011-05-23}
   s.description = %q{This gem add the "deep merge" feature to class Hash.
 It means that if you want to merge hashes that contains other hashes (and so on...), those sub-hashes will be merged as well.
 This is very handy, for example for merging data taken from YAML files.
